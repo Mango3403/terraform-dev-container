@@ -7,6 +7,10 @@ ENV OS_ARCH="${TARGETARCH:-amd64}" \
 ENV TZ Europe/Amsterdam
 ENV SHELL /bin/bash
 
+# set git configuration
+ENV git config --global --unset http.https://github.com.proxy
+ENV git config --global --unset https.https://github.com.proxy
+
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir pre-commit
 
